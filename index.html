@@ -5,13 +5,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>Survey Form</title>
+    <script src="script.js"></script>
   </head>
-  <script>
-    function showThankYouMessage() {
-      alert("Thank you for completing the form. Now you will be redirect to my nice portfolio");
-    }
-
-  </script>
 
   <body>
     <div class="container">
@@ -21,7 +16,7 @@
 	  Thank you for completing the form. Please note that I will receive a copy of your responses to my email (via <a href="https://formsubmit.co/">FormSubmit</a>). 
 	</p>
       </header>
-      <form id="survey-form" action="https://formsubmit.co/44d968996d1685202c77e1eedb7c7c9a" method="POST" onsubmit="showThankYouMessage()">
+      <form id="survey-form" action="https://formsubmit.co/44d968996d1685202c77e1eedb7c7c9a" method="POST" onsubmit="submitForm(); return false;">
 	<div class="form-group">
 	  <label id="name-label" for="name">Name</label>
 	  <input type="text" name="name" id="name" class="form-control" placeholder=":)" required/>
@@ -34,36 +29,36 @@
 	  <p>Which option best describes the position you are looking for?</p>
 	  <select id="dropdown" name="role" class="form-control" required>
 	    <option disabled selected value>Select role</option>
-	    <option value="student">Trainee</option>
-	    <option value="learner">FrontEnd Junior webDev</option>
-	    <option value="job">BackEnd Junior webDev</option>
-	    <option value="preferNo">Coffee Taster</option>
+	    <option value="Trainee">Trainee</option>
+	    <option value="FrontEnd Junior webDev">FrontEnd Junior webDev</option>
+	    <option value="BackEnd Junior webDev">BackEnd Junior webDev</option>
+	    <option value="Coffee Taster">Coffee Taster</option>
 	    <option value="other">Other</option>
 	  </select>
 	</div>
 	<div class="form-group">
-	  <label id="number-label " for="number ">Pay range<span class="clue ">(optional)</span></label>
+	  <label id="number-label" for="number">Pay range<span class="clue ">(optional)</span></label>
 	  <input type="number" name="payrange" id="number" min="2000000"  class="form-control" placeholder="¬¬       $$"/>
 	</div>
 	<div>
 	  <p>Would you recommend my work to others?</p>
 	  <label>
 	    <input
-       name="user-recommend" value="definitely" type="radio" class="input-radio" checked />Definitely 
+       name="recommend" value="definitely" type="radio" class="input-radio" checked />Definitely 
 	  </label>
 	  <label>
-	    <input name="user-recommend" value="maybe" type="radio" class="input-radio"/>Maybe
+	    <input name="recommend" value="maybe" type="radio" class="input-radio"/>Maybe
 	  </label>
 	  <label >
-	    <input name="user-recommend" value="sure" type="radio" class="input-radio"/>Sure
+	    <input name="recommend" value="sure" type="radio" class="input-radio"/>Sure
 	  </label>
 	</div>
 	<div>
 	  <p>
 	    When do I start working?
 	  </p>
-	  <select id="most-like" name="mostLike" class="form-control" required>
-	    <option disabled selected value>For tomorrow is too late</option>
+	  <select id="most-like" name="whenStart" class="form-control" required>
+	    <option disabled selected value:"For tomorrow is too late">For tomorrow is too late</option>
 	    <option value="I don't know, you tell me">I don't know, you tell me</option>
 	    <option value="Don't Call Us, We'll Call You">Don't Call Us, We'll Call You</option>
 	    <option value="We will let you know via email">We will let you know via email</option>
@@ -75,31 +70,31 @@
 	    <span class="clue ">(Check all that apply)</span>
 	  </p>
 	  <label>
-	    <input name="prefer" value="HTML" type="checkbox" class="input-checkbox"/>HTML
+	    <input name="skills" value="HTML" type="checkbox" class="input-checkbox"/>HTML
 	  </label>
 	  <label>
-	    <input name="prefer" value="Css" type="checkbox" class="input-checkbox"/>Css
+	    <input name="skills" value="Css" type="checkbox" class="input-checkbox"/>Css
 	  </label>
 	  <label>
-	    <input name="prefer" value="Javascript" type="checkbox" class="input-checkbox"/>Javascript
+	    <input name="skills" value="Javascript" type="checkbox" class="input-checkbox"/>Javascript
 	  </label>
 	  <label>
-	    <input name="prefer" value="Responsive design" type="checkbox" class="input-checkbox"/>Responsive design 
+	    <input name="skills" value="Responsive design" type="checkbox" class="input-checkbox"/>Responsive design 
 	  </label>
 	  <label>
-	    <input name="prefer" value="Bootstrap" type="checkbox" class="input-checkbox"/>Bootstrap
+	    <input name="skills" value="Bootstrap" type="checkbox" class="input-checkbox"/>Bootstrap
 	  </label>
 	  <label>
-	    <input name="prefer" value="jQuery" type="checkbox" class="input-checkbox"/>jQuery
+	    <input name="skills" value="jQuery" type="checkbox" class="input-checkbox"/>jQuery
 	  </label>
 	  <label>
-	    <input name="prefer" value="React" type="checkbox" class="input-checkbox"/>React
+	    <input name="skills" value="React" type="checkbox" class="input-checkbox"/>React
 	  </label>
 	  <label>
-	    <input name="prefer" value="Git" type="checkbox" class="input-checkbox"/>Git
+	    <input name="skills" value="Git" type="checkbox" class="input-checkbox"/>Git
 	  </label>
 	  <label>
-	    <input name="prefer" value="Copywriting" type="checkbox" class="input-checkbox"/>Copywriting
+	    <input name="skills" value="Copywriting" type="checkbox" class="input-checkbox"/>Copywriting
 	  </label>
 	</div>
 
@@ -116,7 +111,7 @@
 	<input type="hidden" name="_captcha" value="false"> 
 
 	<div class="form-group ">
-	  <button type="submit " id="submit " class="submit-button ">
+	  <button type="submit " id="submit " class="submit-button">
 	    Submit
 	  </button>
 	</div>
